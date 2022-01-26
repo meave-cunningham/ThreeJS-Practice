@@ -23,18 +23,43 @@ var mouse = new THREE.Vector2;
 
 var geometry = new THREE.BoxGeometry(0,0,0);
 var material = new THREE.MeshLambertMaterial({color:0xCCFF00});
-var mesh = new THREE.Mesh(geometry,material);
+meshX = -10;
+for(var i = 0; i<15; i++) {
+    var mesh = new THREE.Mesh(geometry,material);
+    mesh.position.x = (Math.random() - 0.5) * 10;
+    mesh.position.y = (Math.random() - 0.5) * 10;
+    mesh.position.z = (Math.random() - 0.5) * 10;
+    scene.add(mesh);
+    meshX+=1;
+}
+    
+// var mesh = new THREE.Mesh(geometry,material);
 
-mesh.position.set(0,0,0);
-mesh.rotation.set(1,2,1);
+// mesh.rotation.set(1,2,1);
 
-scene.add(mesh);
+// scene.add(mesh);
 
+// var geometry = new THREE.BoxGeometry(0,0,0);
+// var material = new THREE.MeshLambertMaterial({color:0xCCFF00});
+// var mesh = new THREE.Mesh(geometry,material);
+
+// mesh.position.set(0,2,0);
+// mesh.rotation.set(1,2,1);
+
+// scene.add(mesh);
+
+// var geometry = new THREE.BoxGeometry(0,0,0);
+// var material = new THREE.MeshLambertMaterial({color:0xCCFF00});
+// var mesh = new THREE.Mesh(geometry,material);
+
+// mesh.position.set(0,-2,0);
+// mesh.rotation.set(1,2,1);
+
+// scene.add(mesh);
 
 var light = new THREE.PointLight(0xFFFFFF, 1, 500);
 light.position.set(10,0,25);
 scene.add(light);
-
 
 
 var render = function() {
@@ -44,6 +69,7 @@ var render = function() {
     mesh.rotation.z -= 0.01;
     renderer.render(scene, camera);
 };
+
 
 function onMouseMove(event) {
     event.preventDefault();
@@ -63,6 +89,7 @@ function onMouseMove(event) {
 
         
     };
+
 };
 
 
